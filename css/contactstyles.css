@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 20px;
+    background: url(/Websites/noreastentertainment/images/marcela-laskoski-YrtFlrLo2DQ-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 100px;
+    background-color: rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid #ffffff33;
+    z-index: 1;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(192, 246, 255, 0.753), transparent);
+    transition: .8s;
+}
+.header:hover:before {
+    left: 100%;
+}
+.logo {
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: default;
+}
+.navbar a {
+    color: #fff;
+    font-size: 18;
+    text-decoration: none;
+    margin-left: 35px;
+    transition: .3s;
+    
+}
+.navbar a:hover {
+    color: #65c00a;
+}
+.top-layer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.top-layer a,
+.phone-number {
+    margin-left: 15px;
+    color: #fff;
+    text-decoration: none;
+}
+.bottom-layer {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 1px solid #ffffff33;
+}
+.bottom-layer a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+.bottom-layer a.active {
+    color: rgb(0, 0, 150); 
+}
+.dropdown {
+    position: relative;   
+}
+.dropdown-menu {
+    line-height: 38px;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 1.5rem);
+    background-color: rgba(0, 0, 0, .4);
+    backdrop-filter: blur(5px);
+    padding: .5rem;
+    border-radius: .25rem;
+    box-shadow: 0 15px 15px 0 rgba(0, 0, 0, .3);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+.dropdown > .link:focus + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+}
+.container {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: rgba(255, 255, 255, .1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+    backdrop-filter: blur(10px); /* Adjust the blur intensity */
+    padding: 25px;
+    margin-top: 100px;
+    border-radius: 8px;
+}
+.container p {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+.container .form {
+    margin-top: 30px;
+}
+input::placeholder {
+    color: #fff;
+}
+.form .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-box label {
+    color:#fff;
+}
+.form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 8px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    padding: 0 15px;
+    background-color: transparent;
+    backdrop-filter: blur(5px); /* Keep blur for input fields */
+}
+
+.form :where(.input-box input, .select-box):focus {
+    border-color: #fff; /* White border when focused */
+    background-color: transparent; /* Maintain transparency on focus */
+}
+.form .column {
+    display: flex;
+    column-gap: 15px;
+}
+.form .gender-box {
+    margin-top: 20px;
+}
+.gender-box h3 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+.form :where(.gender-option, .gender){
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+    
+}
+.form .gender {
+    column-gap: 5px;
+    cursor: pointer;
+}
+.gender input {
+    accent-color: #000000;
+
+}
+.form :where(.gender input, .gender label) {
+    cursor: pointer;
+}
+.address :where(input, .select-box) {
+    margin-top: 15px;
+}
+.select-box select{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #707070;
+    font-size: 1rem;
+}
+.form button {
+    height: 55px;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 6px;
+    background-color: #6b6b6b;
+    transition: all .2s ease-in-out;
+}
+.form button:hover {
+    background-color: #ddd;
+    color: #6b6b6b;
+}
+#phone {
+    margin-top: 33px;
+}
+.services-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add space between items */
+}
+.services-box label {
+    margin-left: 5px; /* Optional: Add a bit of space between the checkbox and the label */
+}
+.services-box h3 {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+.services-box label, .services-box h3 {
+    color: #fff;   
+}
+#state {
+    color: #fff; /* Text color for the selected option */
+    background-color: transparent; /* Background color for the select box */
+}
+
+#state option[hidden] {
+    color: #fff; /* Color of the "Select" word */
+    background-color: transparent; /* Ensure it has the same background color as the select box */
+}
+select {
+    background-color: transparent; /* Transparent background */
+    color: #fff; /* White text */
+    border: 1px solid #fff; /* White border */
+    border-radius: 6px; /* Rounded corners */
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+}
+select:focus {
+    border-color: #888; /* Lighter border when focused */
+    background-color: transparent; /* Keep background transparent */
+}
+select option {
+    background-color: #333; /* Dark background for options */
+    color: #fff; /* White text */
+}
+
+select option:hover {
+    background-color: #555; /* Highlight option on hover */
+}
+option {
+    background-color: #333; /* Dark background for options */
+    color: #fff; /* White text for options */
+}
+option:hover {
+    background-color: #555; /* Highlight on hover */
+}
+.message h3 {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    color: #fff;
+}
+.message textarea {
+    color: #fff;
+    width: 600px;
+    height: 300px;
+    background: transparent;
+    padding: 10px; /* Add padding to position text away from edges */
+    text-align: left; /* Ensure text aligns to the left */
+    vertical-align: top; /* Optional, aligns text to the top in some cases */
+}
+textarea::placeholder {
+    color: #fff;
+}
+input[type="checkbox"] {
+    accent-color: #65c00a; /* Change this to your desired color */
+}
+@media screen and (max-width: 500px){
+    .form .column{
+        flex-wrap: wrap;
+    }
+    .form :where(.gender-option, .gender){
+        row-gap: 15px;
+    }
+    
+}
