@@ -237,7 +237,9 @@ span {
 }
 /* IMAGES */
 .card_container {
-    margin: 350px 0 350px 0;
+    color: #dddddd;
+    background-color: #5c5c5c;
+    padding: 350px 0 350px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
