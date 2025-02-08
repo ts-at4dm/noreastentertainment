@@ -235,170 +235,56 @@ span {
     width: 70%;
     padding-bottom: 150px;
 }
+/* IMAGES */
 .card_container {
+    margin: 350px 0 350px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-.cards {
-    margin-top: 10%;
-}
-.cards img {
-    width: 400px;
-    height: auto;
-    border-radius: 50px;
-    transform: skew(-20deg);
-    box-shadow: 5px 8px 12px 5px #4949499a;
+    gap: 350px;
 }
 
-.cards:nth-child(odd) {
-    margin-right: 600px;
-    margin-bottom: 20%;
-}
+.image-wrapper {
 
-.cards:nth-child(even) {
-    margin-left: 600px;
-    margin-bottom: 20%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  @media (max-width: 768px) { /* Adjust breakpoint as needed */
-    .cards {
-      flex-direction: column; /* Change to column for mobile */
-    }
-  
-    .card1, .card2, .card3, .card4 { 
-      flex-direction: column; /* Change card layout to column */
-      align-items: center; 
-      margin: 20px 0; /* Adjust margins as needed */
-    }
-  
-    .card1 img, .card2 img, .card3 img, .card4 img {
-      width: 100%; /* Make images responsive */
-      max-width: 500px; /* Set a maximum width for larger screens */
-    }
-  
-    .card1 h2, .card2 h2, .card3 h2, .card4 h2 {
-      margin: 0; /* Remove horizontal margins */
-    }
-  
-    .card1 p, .card2 p, .card3 p, .card4 p {
-      width: auto; /* Remove width constraint */
-      margin: 0; /* Remove horizontal margins */
-    }
-  }
-  @media (max-width: 768px) { 
-    .card1, .card3 {
-      flex-direction: column-reverse; /* Reverse image and text order */
-    }
-  }
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ul {
-    list-style-type: none;  
-    padding: 0;             
-    margin: 0;              
-}
-
-li {
-    display: inline-block;  
-}
-
-.switch-tab {
-    background: none;       
-    border: none;           
-    padding: 10px 20px;     
-    cursor: pointer;       
-    font-size: 16px;       
-    color: #000;            
-}
-
-.section-three {
     display: flex;
-    justify-content: center;
+    width: 100%;
     align-items: center;
-} */
+    justify-content: center;
+
+}
+
+.image-wrapper:nth-child(even) {
+    margin-left: -20%;
+}
+.image-wrapper:nth-child(odd) {
+    margin-right: -20%;
+}
+
+.image-wrapper:nth-child(4) {
+    flex-direction: row-reverse; /* Flip text and image in the last div */
+}
+
+.image-wrapper img {
+    max-width: 40%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transform: skew(-15deg);
+    box-shadow: -14px 16px 29px 0px #0000008f;
+    margin: 0 auto;
+}
+
+.image-wrapper .text-content {
+    flex: 1;
+    padding: 20px 30px; /* Adjust padding as needed */
+    text-align: left; /* Align text to the left */
+}
+
+.image-wrapper h1 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.image-wrapper p {
+    text-align: center;
+}

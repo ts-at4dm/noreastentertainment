@@ -1,12 +1,9 @@
-                        <h2>Extraordinary Weddings!</h2>
-                        <p>Our passionate DJs craft unforgettable weddings tailored to your vision. Expert music programming, seamless mixing, and a vast library keep the dance floor alive all night. Whether intimate or grand, we set the perfect mood and ensure a smooth, effortless flow. From grand entrances to elegant announcements, we handle every detail so you can relax and enjoy. Choose us for professional, reliable service and an unforgettable dance floor experience.</p>
-
-                                            <div class="card2text">
-                        <h1>Set the mood!</h1>
-                        <p>Experience the magic of Up Lighting! Vibrant colors transform your venue, creating an electrifying atmosphere that lingers long after the event. Our wireless and customizable system allows for endless possibilities. Join the trend – lighting design is now essential, like flowers and decor. Let us elevate your event to unforgettable heights.</p>
-
-                                                <h1>Say Cheese!</h1>
-                        <p>A photo booth is the ideal addition to any event! Our user-friendly photo booth guarantees fun and entertainment for guests all night long. Included with every rental, our dedicated photo booth attendant will happily encourage your guests to get creative, dress up, and make lasting memories!</p>
-
-                                                <h1>We've gotcha covered!</h1>
-                        <p>Don’t need a DJ but still need the equipment? Noreast has you covered! We provide rentals for everything from lighting and next-level sound & PA systems to dance floors. We’ll deliver, set it up, monitor, and disassemble everything so you don’t have to!</p>
+<h2>Extraordinary Weddings!</h2>
+<p>Our passionate DJs craft unforgettable weddings tailored to your vision. Expert music programming, seamless mixing, and a vast library keep the dance floor alive all night. Whether intimate or grand, we set the perfect mood and ensure a smooth, effortless flow. From grand entrances to elegant announcements, we handle every detail so you can relax and enjoy. Choose us for professional, reliable service and an unforgettable dance floor experience
+                    <div class="card2text">
+<h1>Set the mood!</h1>
+<p>Experience the magic of Up Lighting! Vibrant colors transform your venue, creating an electrifying atmosphere that lingers long after the event. Our wireless and customizable system allows for endless possibilities. Join the trend – lighting design is now essential, like flowers and decor. Let us elevate your event to unforgettable heights
+                        <h1>Say Cheese!</h1>
+<p>A photo booth is the ideal addition to any event! Our user-friendly photo booth guarantees fun and entertainment for guests all night long. Included with every rental, our dedicated photo booth attendant will happily encourage your guests to get creative, dress up, and make lasting memories
+                        <h1>We've gotcha covered!</h1>
+<p>Don’t need a DJ but still need the equipment? Noreast has you covered! We provide rentals for everything from lighting and next-level sound & PA systems to dance floors. We’ll deliver, set it up, monitor, and disassemble everything so you don’t have to!</p>
