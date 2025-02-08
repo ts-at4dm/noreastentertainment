@@ -245,7 +245,7 @@ input::placeholder {
 }
 
 .form button:hover {
-    background-color: #ddd;
+    background-color: #65c00a;
     color: #6b6b6b;
 }
 
@@ -323,4 +323,7 @@ option:hover {
     .form :where(.gender-option, .gender) {
         row-gap: 15px;
     }
+}
+.ast {
+    color: red;
 }
