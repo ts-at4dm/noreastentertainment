@@ -240,18 +240,29 @@ span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #6b6b6b;
-    
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
-.cards img{
-    border: 1px solid black;
-    border-radius: 20px;
+.cards {
+    margin-top: 10%;
+}
+.cards img {
     width: 400px;
     height: auto;
-
+    border-radius: 50px;
+    transform: skew(-20deg);
+    box-shadow: 5px 8px 12px 5px #4949499a;
 }
 
+.cards:nth-child(odd) {
+    margin-right: 600px;
+    margin-bottom: 20%;
+}
 
+.cards:nth-child(even) {
+    margin-left: 600px;
+    margin-bottom: 20%;
+}
 
 
 
