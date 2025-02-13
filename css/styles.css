@@ -11,13 +11,15 @@ body, html {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
+body { 
+    min-height: 100vh;
+}
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 8px 100px;
+    padding: 8px 50px;
     background-color: rgba(0, 0, 0, .1);
     display: flex;
     justify-content: space-between;
@@ -47,13 +49,36 @@ body, html {
     font-weight: 600;
     cursor: default;
 }
+.sidebar{
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.sidebar li {
+    width: 100%;
+}
+.sidebar li a {
+    width: 100%;
+}
+.top-layer li, .bottom-layer li { 
+    list-style-type: none;
+}
 .navbar a {
     color: #fff;
     font-size: 18;
     text-decoration: none;
     margin-left: 35px;
     transition: .3s;
-    
 }
 .navbar a:hover {
     color: #65c00a;
@@ -325,4 +350,26 @@ span {
 .text-content h1, .text-content p {
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.581);
 }
+.menu-button {
+    display: none;
+}
 /* Review slider */
+
+
+/* mobile navbar */
+@media(max-width: 1000px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+    .bottom-layer {
+        border-top: none;
+    }
+}
+@media(max-width: 400px){
+    .sidebar{
+        width: 100%;
+    }
+}
