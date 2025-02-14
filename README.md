@@ -14,6 +14,15 @@ Welcome to **Noreast Entertainment**, New England's premier event professionals 
 <a href=""> [![My Skills](https://skillicons.dev/icons?i=html,css,js)](https://skillicons.dev) </a>
 
 </div> </a>
+<div align="left">
+    <h2>Future Implementation</h2>
+</div>
+
+<div align="center">
+
+<a href=""> [![My Skills](https://skillicons.dev/icons?i=go,python,mysql,oauth)](https://skillicons.dev) </a>
+
+</div> </a>
 
 
 ## 🌟 Our Services
