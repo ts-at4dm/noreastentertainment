@@ -5,6 +5,16 @@
 Welcome to **Noreast Entertainment**, New England's premier event professionals specializing in DJ Entertainment, Live Sound & Lighting, Photobooth Rentals, and Event Equipment Rentals. Locally owned and proudly serving the Northeast, we bring energy and excitement to every event!
 
 ---
+<div align="left">
+    <h2>Current Stack</h2>
+</div>
+
+<div align="center">
+
+<a href=""> [![My Skills](https://skillicons.dev/icons?i=html,css,js)](https://skillicons.dev) </a>
+
+</div> </a>
+---
 
 ## 🌟 Our Services
 
