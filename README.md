@@ -63,9 +63,9 @@ Whether you're planning a wedding, corporate event, school dance, or private par
 
 ## 📞 Contact Us
 
-☎️ **Phone:** [207-745-8011](tel:207-745-8011)  
-📧 **Email:** [info@noreastentertainment.com](mailto:info@noreastentertainment.com)  
-🌐 **Website:** [Noreast Entertainment](#)  
+☎️ **Phone:** TBD 
+📧 **Email:** TBD  
+🌐 **Website:** TBD 
 
 📲 Follow us on social media for updates, event highlights, and promotions!
 
