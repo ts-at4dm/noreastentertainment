@@ -64,9 +64,7 @@ Whether you're planning a wedding, corporate event, school dance, or private par
 ## 📞 Contact Us
 
 ☎️ **Phone:** TBD 
-<br>
 📧 **Email:** TBD  
-<br>
 🌐 **Website:** TBD 
 
 📲 Follow us on social media for updates, event highlights, and promotions!
