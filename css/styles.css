@@ -8,6 +8,7 @@
     font-family: 'Poppins', sans-serif;
 }
 body, html {
+    overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -49,22 +50,23 @@ body {
     font-weight: 600;
     cursor: default;
 }
-.sidebar{
+.sidebar {
     list-style-type: none;
     position: fixed;
     top: 0;
     right: 0;
     height: 100vh;
     width: 250px;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, .90);
     display: none;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
 }
 .sidebar li {
+    padding-top: 15px;
+    margin-top: 25px;
     width: 100%;
 }
 .sidebar li a {
@@ -289,7 +291,7 @@ span {
 /* IMAGES */
 .card_container {
     color: #898989;
-    background-color: #4b4b4b;
+    background-color: #141414;
     padding: 275px 0 275px 0;
     display: flex;
     flex-direction: column;
@@ -297,7 +299,7 @@ span {
     gap: 275px;
 }
 .image-wrapper {
-    border: 2px solid #898989;
+    border: 4px solid #898989;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -306,10 +308,10 @@ span {
 
 }
 .image-wrapper:nth-child(even) {
-    margin-left: -5%;
+    margin-left: 0%;
 }
 .image-wrapper:nth-child(odd) {
-    margin-right: -5%;
+    margin-right: 0%;
 }
 
 .image-wrapper:nth-child(4) {
@@ -356,7 +358,8 @@ span {
 /* Review slider */
 
 
-/* mobile navbar */
+/* mobile */
+/* Navbar */
 @media(max-width: 1000px){
     .hideOnMobile{
         display: none;
@@ -367,9 +370,126 @@ span {
     .bottom-layer {
         border-top: none;
     }
+    .header {
+        border-bottom: none;
+        backdrop-filter: blur(0px);
+        background-color: transparent;
+        position: absolute;
+    }
+    .header::before {
+        content: none;
+        display: none;
+    }
 }
 @media(max-width: 400px){
     .sidebar{
         width: 100%;
+    }
+    .logo {
+        display: none;
+    }
+    .menu-button {
+        margin-left: 250px;
+    }
+}
+
+/* Hero section */
+
+@media(max-width: 900px){
+    .hero-text {
+        font-size: 25px;
+    }
+    .hero-image button {
+        font-size: 18px;
+    }
+}
+@media(max-width: 600px){
+    .hero-text {
+        font-size: 20px;
+    }
+    .hero-image button {
+        font-size: 14px;
+    }
+}
+
+/* About section */
+
+@media(max-width: 800px){
+    .about-section .icons {
+        display: none;
+    }
+    .about-section{
+        padding-top: -150px 0;
+    }
+    .about-section .about h1 {
+        font-size: 35px;
+    }
+    #underline {
+        bottom: 12px;
+    }
+    .about-section .about p {
+        font-size: 14px;
+    }
+}
+
+/* Images */
+
+@media(max-width: 1000px){
+    .card_container {
+        padding: 150px 0 150px 0;
+        gap: 30px;
+    }
+    .image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content */
+        justify-content: center;
+        width: 80%; /* Adjust width for responsiveness */
+        max-width: 90%;
+        height: fit-content;
+        text-align: center;
+        flex-grow: 1; /* Allows it to expand */
+        flex-shrink: 1; /* Enables shrinking */
+        flex-basis: auto; /* Keeps natural size */
+    }
+    .image-wrapper img {
+        width: 80%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        height: auto;
+        transform: skew(0deg);
+    }
+    .image-wrapper .text-content {
+        margin: 10px 0 20px 0;
+        padding: 10px 15px;
+    }
+    .image-wrapper h1 {
+        text-align: center;
+        font-size: 18px;
+    }
+    .image-wrapper p {
+        font-size: 12px;
+    }
+    .image-wrapper:nth-child(even) {
+        margin-left: 0%;
+    }
+    .image-wrapper:nth-child(odd) {
+        margin-right: 0%;
+    }
+    .text-content1{
+        margin-left: 0;
+    }
+    .text-content2{
+        margin-right: 0;
+    }
+    
+    #image4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    #image2 {  /* This targets the Set the Mood section */
+        flex-direction: column-reverse;  /* Keep text and image side by side */
     }
 }

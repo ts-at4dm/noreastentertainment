@@ -48,3 +48,8 @@ function hideSidebar(){
     const sidebar = document.querySelector('.sidebar');
     sidebar.style.display = 'none';
 }
+function toggleDropdown(event) {
+    event.preventDefault(); // Prevent link from redirecting
+    const dropdown = event.target.closest('.dropdown');
+    dropdown.classList.toggle('active');
+}
