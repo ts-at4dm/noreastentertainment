@@ -1,6 +1,6 @@
 <div align="center">
-    # Noreast Entertainment
-    ## Energy, Unmatched!
+    <h1>Noreast Entertainment</h1>
+    <h2>Energy, Unmatched!</h2>
 </div>
 
 Welcome to **Noreast Entertainment**, New England's premier event professionals specializing in DJ Entertainment, Live Sound & Lighting, Photobooth Rentals, and Event Equipment Rentals. Locally owned and proudly serving the Northeast, we bring energy and excitement to every event!
