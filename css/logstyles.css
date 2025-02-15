@@ -112,8 +112,9 @@ body {
     transform: translateY(0);
 }
 .glass-container {
-    width: 700px;
+    width: 500px;
     height: 450px;
+    margin-top: 115px;
     position: relative;
     z-index: 1;
     background: rgba(255, 255, 255, .1);

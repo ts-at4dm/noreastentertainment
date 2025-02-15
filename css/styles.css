@@ -292,7 +292,7 @@ span {
 .card_container {
     color: #898989;
     background-color: #141414;
-    padding: 275px 0 275px 0;
+    padding: 100px 0 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
