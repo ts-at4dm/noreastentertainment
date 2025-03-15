@@ -147,3 +147,15 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+.calendar-container {
+    width: 90%; /* Adjust width */
+    max-width: 800px; /* Limit max size */
+    overflow: hidden;
+}
+
+.calendar iframe {
+    margin-top: 16vh;
+    width: 100%; /* Make it responsive */
+    height: 600px; /* Adjust height */
+    max-height: 600px;
+}
