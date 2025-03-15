@@ -148,14 +148,14 @@ body {
     transform: translateY(0);
 }
 .calendar-container {
-    width: 90%; /* Adjust width */
-    max-width: 800px; /* Limit max size */
+    width: 90%; 
+    max-width: 800px; 
     overflow: hidden;
 }
 
 .calendar iframe {
     margin-top: 16vh;
-    width: 100%; /* Make it responsive */
-    height: 600px; /* Adjust height */
+    width: 100%;
+    height: 600px; 
     max-height: 600px;
 }
