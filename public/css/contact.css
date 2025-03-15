@@ -10,11 +10,6 @@ body, html {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-body, html {
-    overflow-x: hidden;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
 body {
     margin: 0;
     display: flex;
@@ -153,10 +148,14 @@ body {
     width: 100%;
     background: rgba(255, 255, 255, .1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
-    backdrop-filter: blur(10px); /* Adjust the blur intensity */
+    backdrop-filter: blur(10px);
     padding: 25px;
-    margin-top: 100px;
+    margin-top: 100vh;
+    margin-bottom: 5vh;
     border-radius: 8px;
+}
+span {
+    color: #65c00a;
 }
 .container p {
     font-size: 1.5rem;
@@ -190,12 +189,12 @@ input::placeholder {
     border-radius: 6px;
     padding: 0 15px;
     background-color: transparent;
-    backdrop-filter: blur(5px); /* Keep blur for input fields */
+    backdrop-filter: blur(5px);
 }
 
 .form :where(.input-box input, .select-box):focus {
-    border-color: #fff; /* White border when focused */
-    background-color: transparent; /* Maintain transparency on focus */
+    border-color: #fff; 
+    background-color: transparent; 
 }
 .form .column {
     display: flex;
@@ -262,10 +261,10 @@ input::placeholder {
 .services-box {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Add space between items */
+    gap: 10px; 
 }
 .services-box label {
-    margin-left: 5px; /* Optional: Add a bit of space between the checkbox and the label */
+    margin-left: 5px; 
 }
 .services-box h3 {
     color: #333;
@@ -278,42 +277,42 @@ input::placeholder {
     color: #fff;   
 }
 #state {
-    color: #fff; /* Text color for the selected option */
-    background-color: transparent; /* Background color for the select box */
+    color: #fff; 
+    background-color: transparent; 
 }
 
 #state option[hidden] {
-    color: #fff; /* Color of the "Select" word */
-    background-color: transparent; /* Ensure it has the same background color as the select box */
+    color: #fff; 
+    background-color: transparent; 
 }
 select {
-    background-color: transparent; /* Transparent background */
-    color: #fff; /* White text */
-    border: 1px solid #fff; /* White border */
-    border-radius: 6px; /* Rounded corners */
+    background-color: transparent; 
+    color: #fff; 
+    border: 1px solid #fff; 
+    border-radius: 6px; 
     padding: 10px;
     font-size: 1rem;
     width: 100%;
     outline: none;
 }
 select:focus {
-    border-color: #888; /* Lighter border when focused */
-    background-color: transparent; /* Keep background transparent */
+    border-color: #888; 
+    background-color: transparent; 
 }
 select option {
-    background-color: #333; /* Dark background for options */
-    color: #fff; /* White text */
+    background-color: #333; 
+    color: #fff; 
 }
 
 select option:hover {
-    background-color: #555; /* Highlight option on hover */
+    background-color: #555; 
 }
 option {
-    background-color: #333; /* Dark background for options */
-    color: #fff; /* White text for options */
+    background-color: #333; 
+    color: #fff; 
 }
 option:hover {
-    background-color: #555; /* Highlight on hover */
+    background-color: #555; 
 }
 .message h3 {
     padding-top: 20px;
@@ -325,15 +324,15 @@ option:hover {
     width: 600px;
     height: 300px;
     background: transparent;
-    padding: 10px; /* Add padding to position text away from edges */
-    text-align: left; /* Ensure text aligns to the left */
-    vertical-align: top; /* Optional, aligns text to the top in some cases */
+    padding: 10px; 
+    text-align: left; 
+    vertical-align: top; 
 }
 textarea::placeholder {
     color: #fff;
 }
 input[type="checkbox"] {
-    accent-color: #65c00a; /* Change this to your desired color */
+    accent-color: #65c00a; 
 }
 @media screen and (max-width: 500px){
     .form .column{
