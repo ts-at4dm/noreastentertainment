@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Noreast Entertainment DJ Entertainment" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../public/css/register.css">
+    <title>NE Registration</title>
+    <script src="../scripts/script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">logo</a>
+        <nav class="navbar">
+            <div class="top-layer">
+                <a href="../../public/index.html">Home</a>
+                <a href="../views/about.html">About</a>
+                <a href="../views/contact.html">Contact</a>
+                <a href="../views/calendar.html">Calendar</a>
+                <a href="../views/login.html">Log-in</a>
+                <a href="tel:207-745-8011" class="phone-number">207-745-8011</a>
+            </div>
+            <div class="bottom-layer">
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="link">Event Entertainment</a>
+                    <div class="dropdown-menu">
+                        <a href="../views/weddings.html">Weddings</a>
+                        <a href="../views/schools.html">Schools</a>
+                        <a href="../views/corp.html">Corporate</a>
+                        <a href="../views/private.html">Private</a>
+                    </div>
+                </div>
+                <a href="#">Photo Booth</a>
+                <a href="#">Event Lighting</a>
+                <a href="#">Equipment Renatls</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container">
+        <p>Registration Form</p>
+        <form action="#" class="form">
+            <div class="column">
+                <div class="input-box">
+                    <label>First Name <span class="ast">*</span></label>
+                    <input type="text" placeholder="First Name" required>
+                </div>
+                <div class="input-box">
+                    <label>Last Name <span class="ast">*</span></label>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+            </div>
+            <div class="input-box">
+                <label>Email <span class="ast">*</span></label>
+                <input type="text" placeholder="Email" required>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Phone Number <span class="ast">*</span></label>
+                    <input type="number" placeholder="Phone Number" required>
+                </div>
+                <div class="input-box">
+                    <label>Birthday <span class="ast">*</span></label>
+                    <input type="date" placeholder="Birthday" required>
+                </div>
+            </div>
+            <div class="gender-box">
+                <h3>Gender</h3>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input type="radio" id="check-male" name="gender" />
+                        <label for="check">Male</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-female" name="gender" />
+                        <label for="check-female">Female</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-other" name="gender" />
+                        <label for="check-other">Prefer not to say</label>
+                    </div>
+                </div>
+            </div>
+            <div class="input-box">
+                <label>Address</label>
+                <input type="text" placeholder="Street Address / P.O Box *" required>
+                <input type="text" placeholder="Apt#">
+                <div class="column">
+                    <div class="select-box">
+                        <select id="country" onchange="updateStates()">
+                            <option hidden>Country *</option>
+                            <option value="US">United States</option>
+                            <option value="Canada">Canada</option> 
+                        </select>
+                    </div>
+                    <input type="text" placeholder="City *" required>
+                </div>
+                <div class="column">
+                    <div class="select-box">
+                        <select id="state">
+                            <option hidden>State/Province *</option>
+                        </select>
+                    </div>
+                    <input type="text" placeholder="Zip Code *" required>
+                </div>
+            </div>
+            <button>Submit</button>
+        </form>
+        </section>
+        
+    </body>
+    </html>

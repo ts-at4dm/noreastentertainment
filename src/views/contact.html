@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Noreast Entertainment DJ Entertainment" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../public/css/contact.css">
+    <title>NE - Contact</title>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">logo</a>
+        <nav class="navbar">
+            <div class="top-layer">
+                <a href="../../public/index.html">Home</a>
+                <a href="../views/about.html">About</a>
+                <a href="../views/contact.html">Contact</a>
+                <a href="../views/calendar.html">Calendar</a>
+                <a href="../views/login.html">Log-in</a>
+                <a href="tel:207-745-8011" class="phone-number">207-745-8011</a>
+            </div>
+            <div class="bottom-layer">
+                <div class="dropdown">
+                    <a href="javascript:void(0)" class="link">Event Entertainment</a>
+                    <div class="dropdown-menu">
+                        <a href="../views/weddings.html">Weddings</a>
+                        <a href="../views/schools.html">Schools</a>
+                        <a href="../views/corp.html">Corporate</a>
+                        <a href="../views/private.html">Private</a>
+                    </div>
+                </div>
+                <a href="#">Photo Booth</a>
+                <a href="#">Event Lighting</a>
+                <a href="#">Equipment Renatls</a>
+            </div>
+        </nav>
+    </header>
+    <section class="container">
+        <p>Contact Form</p>
+        <form method="POST" action="send_email.php" class="form">
+            <div class="column">
+                <div class="input-box">
+                    <input type="text" name="First Name" placeholder="First Name *" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Last Name" placeholder="Last Name *" required>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="email" name="Email" placeholder="Email *" required>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <input type="tel" name="Phone" placeholder="Phone Number *" id="phone" required>
+                </div>
+                <div class="input-box">
+                    <label>Event Date & Time *</label>
+                    <input type="datetime-local" name="D_T">
+                </div>
+            </div>
+            <div class="gender-box">
+                <h3>Event Type *</h3>
+                <div class="gender-option">
+                    <div class="select-box">
+                        <select id="state" name="Event Type" required>
+                            <option hidden aria-required="true">Select</option>
+                            <option>Wedding</option>
+                            <option>School/Prom</option>
+                            <option>Corporate</option>
+                            <option>Private</option>
+                            <option>Public</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="services-box">
+                <h3>Select Services *</h3>
+                <label><input type="checkbox" name="Services[]" value="DJ/MC"> DJ/MC</label>
+                <label><input type="checkbox" name="Services[]" value="Photo Booth"> Photo Booth</label>
+                <label><input type="checkbox" name="Services[]" value="Event Lighting"> Event Lighting</label>
+                <label><input type="checkbox" name="Services[]" value="Equipment Rental"> Equipment Rental</label>
+            </div>
+            <div class="message">
+                <h3>Message</h3>
+                <textarea name="Message" placeholder="Type your message here"></textarea>
+            </div>
+            <button>Submit</button>
+        </form>
+    </section>
+</body>
+</html>
