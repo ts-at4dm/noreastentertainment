@@ -132,7 +132,7 @@ body {
     transform: translateY(0);
 }
 .hero-image {
-    background: url("/Personal_Projects/Websites/noreastentertainment/public/img/djphoto.jpg");
+    background: url("../../public/img/djphoto.jpg");
     height: 102vh;
     background-position: center;
     background-repeat: no-repeat;

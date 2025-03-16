@@ -19,7 +19,7 @@ body {
     background-color: #6b6b6b;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    background: url("/Personal_Projects/Websites/noreastentertainment/public/img/djphoto.jpg");
+    background: url("../../public/img/djphoto.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 

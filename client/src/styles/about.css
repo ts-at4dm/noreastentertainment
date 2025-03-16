@@ -5,19 +5,36 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+body, html {
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+body, html {
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 body {
-    min-height: 100vh;
+    margin: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-self: center;
-    background: url("/Personal_Projects/Websites/noreastentertainment/public/img/djphoto.jpg");
+    height: 100vh;
+    background-color: #6b6b6b;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background: url("../../public/img/djphoto.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 8px 100px;
+    padding: 8px 50px;
     background-color: rgba(0, 0, 0, .1);
     display: flex;
     justify-content: space-between;
@@ -40,6 +57,31 @@ body {
 .header:hover:before {
     left: 100%;
 }
+.sidebar {
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, .90);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.sidebar li {
+    padding-top: 15px;
+    margin-top: 25px;
+    width: 100%;
+}
+.sidebar li a {
+    width: 100%;
+}
+.top-layer li, .bottom-layer li { 
+    list-style-type: none;
+}
 .logo {
     color: #fff;
     font-size: 25px;
@@ -53,7 +95,6 @@ body {
     text-decoration: none;
     margin-left: 35px;
     transition: .3s;
-    
 }
 .navbar a:hover {
     color: #65c00a;
@@ -84,25 +125,4 @@ body {
 }
 .bottom-layer a.active {
     color: rgb(0, 0, 150); 
-}
-.dropdown {
-    position: relative;   
-}
-.dropdown-menu {
-    line-height: 38px;
-    position: absolute;
-    left: 0;
-    top: calc(100% + 1.5rem);
-    background-color: rgba(0, 0, 0, .4);
-    backdrop-filter: blur(5px);
-    padding: .5rem;
-    border-radius: .25rem;
-    box-shadow: 0 15px 15px 0 rgba(0, 0, 0, .3);
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
-}
-.dropdown > .link:focus + .dropdown-menu {
-    opacity: 1;
-    transform: translateY(0);
 }
