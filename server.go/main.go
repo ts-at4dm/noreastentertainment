@@ -1,44 +1,29 @@
 package main
 
 import (
-	"fmt"
-	//"log"
+	"log"
 	"net/http"
-	"os"
+	"./handlers"
 )
 
-type Page struct {
-	Title string
-	Body  []byte
-}
 
-func (p *Page) save() error {
-	filename := p.Title + ".txt"
-	return os.WriteFile(filename, p.Body, 0600)
-}
-
-func loadPage(title string) (*Page, error) {
-	filename := title + ".txt"
-	body, err := os.ReadFile(filename)
-	if err != nil {
-		return nil, err
-	}
-	return &Page{Title: title, Body: body}, nil
-}
-
-func viewHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "../client/public/index.html")
-}
 
 func main() {
-	http.HandleFunc("/", viewHandler)
+	http.HandleFunc("/", handlers.homeHandler)
+	http.HandleFunc("/about", handlers.homeHandler)
+	http.HandleFunc("/account", handlers.homeHandler)
+	http.HandleFunc("/calendar", handlers.homeHandler)
+	http.HandleFunc("/contact", handlers.homeHandler)
+	http.HandleFunc("/corp", handlers.homeHandler)
+	http.HandleFunc("/forgot", handlers.homeHandler)
+	http.HandleFunc("/login", handlers.homeHandler)
+	http.HandleFunc("/private", handlers.homeHandler)
+	http.HandleFunc("/register", handlers.homeHandler)
+	http.HandleFunc("/response", handlers.homeHandler)
+	http.HandleFunc("/schools", handlers.homeHandler)
+	http.HandleFunc("/weddings", handlers.homeHandler)
 
-	fs := http.FileServer(http.Dir("../client/public"))
-	http.Handle("/static", http.StripPrefix("/static", fs))
-
-	fd := http.FileServer(http.Dir("../client/src/styles"))
-	http.Handle("/static/", http.StripPrefix("/static/", fd))
-
-	fmt.Println("Server is runnning at http://localhost:8080")
+	log.Println("Server Established...")
 	http.ListenAndServe(":8080", nil)
+
 }
