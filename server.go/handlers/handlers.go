@@ -4,53 +4,53 @@ import (
 	"net/http"
 )
 
-func homeHandler(w http.ResponseWriter, r *http.Request) {
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/public")
 }
 
-func aboutHandler(w http.ResponseWriter, r *http.Request) {
+func AboutHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/about.html")
 }
-func accountHandler(w http.ResponseWriter, r *http.Request) {
+func AccountHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/account.html")
 }
 
-func calendarHandler(w http.ResponseWriter, r *http.Request) {
+func CalendarHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/calendar.html")
 }
 
-func contactHandler(w http.ResponseWriter, r *http.Request) {
+func ContactHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/contact.html")
 }
 
-func corpHandler(w http.ResponseWriter, r *http.Request) {
+func CorpHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/corp.html")
 }
 
-func forgotHandler(w http.ResponseWriter, r *http.Request) {
+func ForgotHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/forgot.html")
 }
 
-func loginHandler(w http.ResponseWriter, r *http.Request) {
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/login.html")
 }
 
-func privateHandler(w http.ResponseWriter, r *http.Request) {
+func PrivateHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/private.html")
 }
 
-func registerHandler(w http.ResponseWriter, r *http.Request) {
+func RegisterHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/register.html")
 }
 
-func responseHandler(w http.ResponseWriter, r *http.Request) {
+func ResponseHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/response.html")
 }
 
-func schoolsHandler(w http.ResponseWriter, r *http.Request) {
+func SchoolsHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/schools.html")
 }
 
-func weddingsHandler(w http.ResponseWriter, r *http.Request) {
+func WeddingsHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/src/pages/weddings.html")
 }

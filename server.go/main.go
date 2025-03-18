@@ -3,25 +3,25 @@ package main
 import (
 	"log"
 	"net/http"
-	"./handlers"
+	"github.com/ts-at4dm/noreastentertainment/handlers"
 )
 
 
 
 func main() {
-	http.HandleFunc("/", handlers.homeHandler)
-	http.HandleFunc("/about", handlers.homeHandler)
-	http.HandleFunc("/account", handlers.homeHandler)
-	http.HandleFunc("/calendar", handlers.homeHandler)
-	http.HandleFunc("/contact", handlers.homeHandler)
-	http.HandleFunc("/corp", handlers.homeHandler)
-	http.HandleFunc("/forgot", handlers.homeHandler)
-	http.HandleFunc("/login", handlers.homeHandler)
-	http.HandleFunc("/private", handlers.homeHandler)
-	http.HandleFunc("/register", handlers.homeHandler)
-	http.HandleFunc("/response", handlers.homeHandler)
-	http.HandleFunc("/schools", handlers.homeHandler)
-	http.HandleFunc("/weddings", handlers.homeHandler)
+	http.HandleFunc("/", handlers.HomeHandler)
+	http.HandleFunc("/about", handlers.AboutHandler)
+	http.HandleFunc("/account", handlers.AccountHandler)
+	http.HandleFunc("/calendar", handlers.CalendarHandler)
+	http.HandleFunc("/contact", handlers.ContactHandler)
+	http.HandleFunc("/corp", handlers.CorpHandler)
+	http.HandleFunc("/forgot", handlers.ForgotHandler)
+	http.HandleFunc("/login", handlers.LoginHandler)
+	http.HandleFunc("/private", handlers.PrivateHandler)
+	http.HandleFunc("/register", handlers.RegisterHandler)
+	http.HandleFunc("/response", handlers.ResponseHandler)
+	http.HandleFunc("/schools", handlers.SchoolsHandler)
+	http.HandleFunc("/weddings", handlers.WeddingsHandler)
 
 	log.Println("Server Established...")
 	http.ListenAndServe(":8080", nil)
