@@ -64,7 +64,7 @@ func sendEmail(formData ContactForm) error {
 	if err != nil {
 		return fmt.Errorf("invalid date format: %v", err)
 	}
-	// Format the DateTime as "March 29th 2025 at 23:10"
+	// Format the DateTime as "Month Day Year at Time in 24hr."
 	eventDateFormatted := eventTime.Format("January 2nd 2006") + " at " + eventTime.Format("15:04")
 
 	// Construct the payload for the email
