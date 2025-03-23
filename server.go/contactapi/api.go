@@ -90,7 +90,7 @@ func sendEmail(formData ContactForm) error {
 	}
 
 	// Add the headers
-	req.Header.Add("Authorization", "")
+	req.Header.Add("Authorization", "Bearer 7912dca21d7e6e41ae931c7f64f52b8c")
 	req.Header.Add("Content-Type", "application/json")
 
 	// Send the request
