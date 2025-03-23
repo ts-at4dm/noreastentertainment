@@ -315,12 +315,12 @@ option {
 option:hover {
     background-color: #555; 
 }
-.message h3 {
+.messages h3 {
     padding-top: 20px;
     padding-bottom: 5px;
     color: #fff;
 }
-.message textarea {
+.messages textarea {
     color: #fff;
     width: 600px;
     height: 300px;
