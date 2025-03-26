@@ -8,36 +8,67 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="styles/about.css">
     <title>NE - About us</title>
-<html>
+    <html>
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo">logo</a>
+        <a href="index.html" class="logo">logo</a>
         <nav class="navbar">
+            <ul class="sidebar">
+                <li onclick="hideSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Photobooth</a></li>
+                <li><a href="#">Event Lighting</a></li>
+                <li><a href="#">Equipment Rentals</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="login.html">Login</a></li> -->
+            </ul>
             <div class="top-layer">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="calendar.html">Calendar</a>
-                <!-- <a href="login.html">Log-in</a> -->
-                <a href="tel:207-745-8011" class="phone-number">207-745-8011</a>
+                <li class="hideOnMobile"><a href="index.html">Home</a></li>
+                <li class="hideOnMobile"><a href="about.html">About</a></li>
+                <li class="hideOnMobile"><a href="contact.html">Contact</a></li>
+                <li class="hideOnMobile"><a href="calendar.html">Calendar</a></li>
+                <!-- <li class="hideOnMobile"><a href="login.html">Log-in</a></li> -->
+                <li class="hideOnMobile"><a href="tel:207-745-8011" class="phone-number">207-745-8011</a></li>
             </div>
             <div class="bottom-layer">
                 <div class="dropdown">
-                    <a href="javascript:void(0)" class="link">Event Entertainment</a>
-                    <div class="dropdown-menu">
-                        <a href="weddings.html">Weddings</a>
-                        <a href="schools.html">Schools</a>
-                        <a href="corp.html">Corporate</a>
-                        <a href="private.html">Private</a>
-                    </div>
+                    <ul>
+                        <li class="hideOnMobile">
+                            <a href="javascript:void(0)" class="dropbtn" onclick="toggleDropdown()">Event Entertainment</a>
+                            <div id="myDropdown" class="dropdown-content">
+                                <ul>
+                                    <li class="hideOnMobile"><a href="weddings.html">Weddings</a></li>
+                                    <li class="hideOnMobile"><a href="schools.html">Schools</a></li>
+                                    <li class="hideOnMobile"><a href="corp.html">Corporate</a></li>
+                                    <li class="hideOnMobile"><a href="private.html">Private</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <a href="photobooth.html">Photo Booth</a>
-                <a href="eventlighting.html">Event Lighting</a>
-                <a href="rentals.html">Equipment Renatls</a>
+                <li class="hideOnMobile"><a href="#">Photo Booth</a></li>
+                <li class="hideOnMobile"><a href="#">Event Lighting</a></li>
+                <li class="hideOnMobile"><a href="#">Equipment Rentals</a></li>
+                <li class="menu-button" onclick="showSidebar()">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                        </svg>
+                    </a>
+                </li>
             </div>
         </nav>
     </header>
+    <script src="js/script.js"></script>
 </body>
 </html>    
 

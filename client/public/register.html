@@ -24,13 +24,19 @@
             </div>
             <div class="bottom-layer">
                 <div class="dropdown">
-                    <a href="javascript:void(0)" class="link">Event Entertainment</a>
-                    <div class="dropdown-menu">
-                        <a href="weddings.html">Weddings</a>
-                        <a href="schools.html">Schools</a>
-                        <a href="corp.html">Corporate</a>
-                        <a href="private.html">Private</a>
-                    </div>
+                    <ul>
+                        <li class="hideOnMobile">
+                            <a href="javascript:void(0)" class="dropbtn" onclick="toggleDropdown()">Event Entertainment</a>
+                            <div id="myDropdown" class="dropdown-content">
+                                <ul>
+                                    <li class="hideOnMobile"><a href="weddings.html">Weddings</a></li>
+                                    <li class="hideOnMobile"><a href="schools.html">Schools</a></li>
+                                    <li class="hideOnMobile"><a href="corp.html">Corporate</a></li>
+                                    <li class="hideOnMobile"><a href="private.html">Private</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <a href="#">Photo Booth</a>
                 <a href="#">Event Lighting</a>
@@ -38,7 +44,7 @@
             </div>
         </nav>
     </header>
-
+    
     <section class="container">
         <p>Registration Form</p>
         <form action="#" class="form">
@@ -108,7 +114,7 @@
             </div>
             <button>Submit</button>
         </form>
-        </section>
-        
-    </body>
-    </html>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>
