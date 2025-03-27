@@ -2,12 +2,15 @@ package contactapi
 
 import (
 	"fmt"
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"net/http"
 	"strings"
 	"io/ioutil" 
 	"time"
+	"os"
+
+	"github.com/joho/godotenv"
 )
 
 // ContactForm reps the structure of the contact form
@@ -56,10 +59,19 @@ func contactHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "../client/public.contact.html")
 }
 
+func init() {
+	godotenv.Load("./.env")
+}
+
 // sendEmail sends an email using the Mailtrap API with the provided contact form data.
 func sendEmail(formData ContactForm) error {
 	url := "https://sandbox.api.mailtrap.io/api/send/3496565"
 	method := "POST"
+
+	apiKey := os.Getenv("MAILTRAP_API_KEY")
+	if apiKey == "" {
+		return fmt.Errorf("MAILTRAP_API_KEY is not set")
+	}
 
 	// Parse and format the DateTime
 	eventTime, err := time.Parse("2006-01-02T15:04", formData.DateTime)
@@ -101,7 +113,7 @@ func sendEmail(formData ContactForm) error {
 	}
 
 	// Add the headers
-	req.Header.Add("Authorization", "Bearer 7912dca21d7e6e41ae931c7f64f52b8c")
+	req.Header.Add("Authorization", apiKey)
 	req.Header.Add("Content-Type", "application/json")
 
 	// Send the request
