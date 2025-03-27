@@ -2,6 +2,8 @@ package contactapi
 
 import (
 	"fmt"
+	"encoding/json"
+	"bytes"
 	"net/http"
 	"strings"
 	"io/ioutil" 
@@ -68,23 +70,32 @@ func sendEmail(formData ContactForm) error {
 	eventDateFormatted := eventTime.Format("January 2nd 2006") + " at " + eventTime.Format("15:04")
 
 	// Construct the payload for the email
-	payload := fmt.Sprintf(`{
-		"from": {
+	payload := map[string]interface{}{
+		"from": map[string]string{
 			"email": "hello@example.com",
-			"name": "Mailtrap Test"
+			"name":  "Mailtrap Test",
 		},
-		"to": [
-			{
-				"email": "%s"
-			}
-		],
+		"to": []map[string]string{
+			{"email": formData.Email},
+		},
 		"subject": "Contact Form Submission",
-		"text": "First Name: %s\nLast Name: %s\nPhone: %s\nEmail: %s\nEvent Date: %s\nEvent Type: %s\nServices: %s\nMessage:\n\n%s",
-		"category": "Contact Form"
-	}`, formData.Email, formData.FirstName, formData.LastName, formData.Phone, formData.Email, eventDateFormatted, formData.EventType, strings.Join(formData.Services, ", "), formData.Message)
+		"text": fmt.Sprintf(
+			"First Name: %s\nLast Name: %s\nPhone: %s\nEmail: %s\nEvent Date: %s\nEvent Type: %s\nServices: %s\nMessage:\n\n%s",
+			formData.FirstName, formData.LastName, formData.Phone, formData.Email,
+			eventDateFormatted, formData.EventType, strings.Join(formData.Services, ", "), formData.Message,
+		),
+		"category": "Contact Form",
+	}
 
+	// Convert payload to JSON
+	jsonData, err := json.Marshal(payload)
+	if err != nil {
+		return fmt.Errorf("failed to marshal JSON: %v", err)
+	}
+
+	// Create HTTP request
 	client := &http.Client{}
-	req, err := http.NewRequest(method, url, strings.NewReader(payload))
+	req, err := http.NewRequest(method, url, bytes.NewBuffer(jsonData))
 	if err != nil {
 		return err
 	}
