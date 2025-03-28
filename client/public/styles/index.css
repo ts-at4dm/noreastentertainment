@@ -13,7 +13,7 @@ html, body {
 
 body::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .hero-image {
     background: url("../img/djphoto.jpg");
