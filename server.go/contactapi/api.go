@@ -2,11 +2,10 @@ package contactapi
 
 import (
 	"fmt"
-	"bytes"
 	"encoding/json"
 	"net/http"
+	"net/smtp"
 	"strings"
-	"io/ioutil" 
 	"time"
 	"os"
 
@@ -103,72 +102,139 @@ func init() {
 	godotenv.Load("./.env")
 }
 
-// sendEmail sends an email using the Mailtrap API with the provided contact form data.
+
 func sendEmail(formData ContactForm) error {
-	url := "https://sandbox.api.mailtrap.io/api/send/3496565"
-	method := "POST"
-	
-	// Logic for the API key
-	apiKey := os.Getenv("MAILTRAP_API_KEY")
-	if apiKey == "" {
-		return fmt.Errorf("MAILTRAP_API_KEY is not set")
-	}
-	
-	// Parse and format the DateTime
-	eventTime, err := time.Parse("2006-01-02T15:04", formData.DateTime)
-	if err != nil {
-		return fmt.Errorf("invalid date format: %v", err)
-	}
-	// Format the DateTime as "Month Day Year at Time in 24hr."
-	eventDateFormatted := eventTime.Format("January 2nd 2006") + " at " + eventTime.Format("15:04")
-	
-	// Construct the payload for the email
-	payload := map[string]interface{}{
-		"from": map[string]string{
-			"email": "hello@example.com",
-			"name":  "Mailtrap Test",
-		},
-		"to": []map[string]string{
-			{"email": formData.Email},
-		},
-		"subject": "Contact Form Submission",
-		"text": fmt.Sprintf(
-			"First Name: %s\nLast Name: %s\nPhone: %s\nEmail: %s\nEvent Date: %s\nEvent Type: %s\nServices: %s\nMessage:\n\n%s",
-			formData.FirstName, formData.LastName, formData.Phone, formData.Email,
-			eventDateFormatted, formData.EventType, strings.Join(formData.Services, ", "), formData.Message,
-		),
-		"category": "Contact Form",
-	}
-	
-	// Convert payload to JSON
-	jsonData, err := json.Marshal(payload)
-	if err != nil {
-		return fmt.Errorf("failed to marshal JSON: %v", err)
-	}
-	
-	// Create HTTP request
-	client := &http.Client{}
-	req, err := http.NewRequest(method, url, bytes.NewBuffer(jsonData))
-	if err != nil {
-		return err
-	}
-	
-
-	// Add the headers
-	req.Header.Add("Authorization", apiKey)
-	req.Header.Add("Content-Type", "application/json")
-	
-	// Send the request
-	res, err := client.Do(req)
-	if err != nil {
-		return err
-	}
-	defer res.Body.Close()
-
-	if res.StatusCode != http.StatusOK {
-		body, _ := ioutil.ReadAll(res.Body)
-		return fmt.Errorf("failed to send email: %s", body)
+	// Load env vars
+	from := os.Getenv("GMAIL_EMAIL")
+	password := os.Getenv("GMAIL_APP_PASSWORD")
+	if from == "" || password == "" {
+		return fmt.Errorf("GMAIL_EMAIL or GMAIL_APP_PASSWORD not set")
 	}
 
+	// Create a notification email to yourself
+	toAdmin := from // Send to yourself
+	
+	// Parse and format the DateTime (handle empty date or parsing errors gracefully)
+	eventDateFormatted := "Not specified"
+	if formData.DateTime != "" {
+		eventTime, err := time.Parse("2006-01-02T15:04", formData.DateTime)
+		if err == nil {
+			eventDateFormatted = eventTime.Format("January 2, 2006 at 15:04")
+		}
+	}
+
+	// Prepare admin notification message
+	adminSubject := "Subject: New Contact Form Submission\r\n"
+	mime := "MIME-version: 1.0;\r\nContent-Type: text/plain; charset=\"UTF-8\";\r\n"
+	
+	adminBody := fmt.Sprintf(
+		"You've received a new contact form submission:\n\n"+
+			"First Name: %s\nLast Name: %s\nPhone: %s\nEmail: %s\n"+
+			"Event Date: %s\nEvent Type: %s\nServices: %s\n\nMessage:\n%s",
+		formData.FirstName, formData.LastName, formData.Phone, formData.Email,
+		eventDateFormatted, formData.EventType, strings.Join(formData.Services, ", "), formData.Message,
+	)
+	
+	adminMsg := []byte(adminSubject + mime + "\r\n" + adminBody)
+
+	// SMTP Setup
+	smtpHost := "smtp.gmail.com"
+	smtpPort := "587"
+
+	auth := smtp.PlainAuth("", from, password, smtpHost)
+
+	// Send admin notification email
+	err := smtp.SendMail(smtpHost+":"+smtpPort, auth, from, []string{toAdmin}, adminMsg)
+	if err != nil {
+		return fmt.Errorf("failed to send admin notification email: %v", err)
+	}
+	
+	// Only send confirmation to submitter if they provided an email
+	if formData.Email != "" && formData.Email != from {
+		// Prepare confirmation message for the submitter
+		confirmSubject := "Subject: Thank you for contacting Noreast Entertainment\r\n"
+		confirmBody := fmt.Sprintf(
+			"Dear %s,\n\nThank you for contacting Noreast Entertainment. We have received your submission and will get back to you shortly.\n\n"+
+				"Here's a summary of your request:\n"+
+				"Event Date: %s\nEvent Type: %s\nServices: %s\n\n"+
+				"Best regards,\nNoreast Entertainment Team",
+			formData.FirstName, eventDateFormatted, formData.EventType, strings.Join(formData.Services, ", "),
+		)
+		
+		confirmMsg := []byte(confirmSubject + mime + "\r\n" + confirmBody)
+		
+		// Send confirmation email - don't return error if this fails
+		smtp.SendMail(smtpHost+":"+smtpPort, auth, from, []string{formData.Email}, confirmMsg)
+	}
+	
 	return nil
 }
+// sendEmail sends an email using the Mailtrap API with the provided contact form data.
+// func sendEmail(formData ContactForm) error {
+// 	url := "https://sandbox.api.mailtrap.io/api/send/3496565"
+// 	method := "POST"
+	
+// 	// Logic for the API key
+// 	apiKey := os.Getenv("MAILTRAP_API_KEY")
+// 	if apiKey == "" {
+// 		return fmt.Errorf("MAILTRAP_API_KEY is not set")
+// 	}
+	
+// 	// Parse and format the DateTime
+// 	eventTime, err := time.Parse("2006-01-02T15:04", formData.DateTime)
+// 	if err != nil {
+// 		return fmt.Errorf("invalid date format: %v", err)
+// 	}
+// 	// Format the DateTime as "Month Day Year at Time in 24hr."
+// 	eventDateFormatted := eventTime.Format("January 2nd 2006") + " at " + eventTime.Format("15:04")
+	
+// 	// Construct the payload for the email
+// 	payload := map[string]interface{}{
+// 		"from": map[string]string{
+// 			"email": "hello@example.com",
+// 			"name":  "Mailtrap Test",
+// 		},
+// 		"to": []map[string]string{
+// 			{"email": formData.Email},
+// 		},
+// 		"subject": "Contact Form Submission",
+// 		"text": fmt.Sprintf(
+// 			"First Name: %s\nLast Name: %s\nPhone: %s\nEmail: %s\nEvent Date: %s\nEvent Type: %s\nServices: %s\nMessage:\n\n%s",
+// 			formData.FirstName, formData.LastName, formData.Phone, formData.Email,
+// 			eventDateFormatted, formData.EventType, strings.Join(formData.Services, ", "), formData.Message,
+// 		),
+// 		"category": "Contact Form",
+// 	}
+	
+// 	// Convert payload to JSON
+// 	jsonData, err := json.Marshal(payload)
+// 	if err != nil {
+// 		return fmt.Errorf("failed to marshal JSON: %v", err)
+// 	}
+	
+// 	// Create HTTP request
+// 	client := &http.Client{}
+// 	req, err := http.NewRequest(method, url, bytes.NewBuffer(jsonData))
+// 	if err != nil {
+// 		return err
+// 	}
+	
+
+// 	// Add the headers
+// 	req.Header.Add("Authorization", apiKey)
+// 	req.Header.Add("Content-Type", "application/json")
+	
+// 	// Send the request
+// 	res, err := client.Do(req)
+// 	if err != nil {
+// 		return err
+// 	}
+// 	defer res.Body.Close()
+
+// 	if res.StatusCode != http.StatusOK {
+// 		body, _ := ioutil.ReadAll(res.Body)
+// 		return fmt.Errorf("failed to send email: %s", body)
+// 	}
+
+// 	return nil
+// }

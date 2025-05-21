@@ -29,9 +29,9 @@ func main() {
 
 	contactapi.SetupRoutes()
 
-	log.Println("Server Initialized on Port :5500")
+	log.Println("Server Initialized on Port :5000")
 
-	err := http.ListenAndServe(":5500", nil)
+	err := http.ListenAndServe(":5000", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
