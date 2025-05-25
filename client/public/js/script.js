@@ -80,3 +80,170 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 });
 
+// Testimonial
+
+class Testimonial3DSlider {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.testimonial-slide');
+                this.totalSlides = this.slides.length;
+                this.indicators = document.querySelectorAll('.indicator');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.playPauseBtn = document.getElementById('playPauseBtn');
+                this.isPlaying = true;
+                this.autoPlayInterval = null;
+                
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.startAutoPlay();
+                this.updateSlidePositions();
+            }
+
+            bindEvents() {
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                this.playPauseBtn.addEventListener('click', () => this.toggleAutoPlay());
+                
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Touch/swipe support
+                let startX = 0;
+                let endX = 0;
+                const slider = document.getElementById('slider3D');
+                
+                slider.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                slider.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    this.handleSwipe();
+                });
+
+                // Mouse drag support
+                let isDragging = false;
+                slider.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.clientX;
+                });
+                
+                slider.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                });
+                
+                slider.addEventListener('mouseup', (e) => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    endX = e.clientX;
+                    this.handleSwipe();
+                });
+
+                // Pause auto-play on hover
+                const section = document.querySelector('.testimonial-section');
+                section.addEventListener('mouseenter', () => this.pauseAutoPlay());
+                section.addEventListener('mouseleave', () => {
+                    if (this.isPlaying) this.startAutoPlay();
+                });
+            }
+
+            handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.prevSlide();
+                    }
+                }
+            }
+
+            updateSlidePositions() {
+                this.slides.forEach((slide, index) => {
+                    slide.classList.remove('active', 'prev', 'next', 'hidden');
+                    
+                    if (index === this.currentSlide) {
+                        slide.classList.add('active');
+                    } else if (index === this.getPrevIndex()) {
+                        slide.classList.add('prev');
+                    } else if (index === this.getNextIndex()) {
+                        slide.classList.add('next');
+                    } else {
+                        slide.classList.add('hidden');
+                    }
+                });
+
+                this.updateIndicators();
+            }
+
+            updateIndicators() {
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            getPrevIndex() {
+                return this.currentSlide === 0 ? this.totalSlides - 1 : this.currentSlide - 1;
+            }
+
+            getNextIndex() {
+                return this.currentSlide === this.totalSlides - 1 ? 0 : this.currentSlide + 1;
+            }
+
+            nextSlide() {
+                this.currentSlide = this.getNextIndex();
+                this.updateSlidePositions();
+            }
+
+            prevSlide() {
+                this.currentSlide = this.getPrevIndex();
+                this.updateSlidePositions();
+            }
+
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateSlidePositions();
+            }
+
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 8000);
+            }
+
+            pauseAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+
+            toggleAutoPlay() {
+                const icon = this.playPauseBtn.querySelector('i');
+                
+                if (this.isPlaying) {
+                    this.pauseAutoPlay();
+                    this.isPlaying = false;
+                    icon.className = 'bx bx-play';
+                    this.playPauseBtn.title = 'Start auto-play';
+                } else {
+                    this.startAutoPlay();
+                    this.isPlaying = true;
+                    icon.className = 'bx bx-pause';
+                    this.playPauseBtn.title = 'Pause auto-play';
+                }
+            }
+        }
+
+        // Initialize the slider when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new Testimonial3DSlider();
+        });
